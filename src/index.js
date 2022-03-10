@@ -13,14 +13,6 @@ async function run() {
         const { context = {} } = github;
         const { pull_request } = context.payload;
 
-        fs.readdir(".", (err, files) => {
-            console.log(files)
-        })
-
-        fs.readdir("myxmlpp", (err, files) => {
-            console.log(files)
-        })
-
         const results = extractReportInformations(reportFilepath)
 
         console.log(results)
