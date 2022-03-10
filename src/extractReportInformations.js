@@ -38,7 +38,7 @@ function readJSONFile(reportFilename) {
 }
 
 function extractReportInformations(reportFilename) {
-    const report = require('../../../../' + reportFilename)
+    const report = require(reportFilename)
     let errors = []
     let crashed = []
 

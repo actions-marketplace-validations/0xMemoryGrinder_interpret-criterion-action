@@ -7,12 +7,13 @@ const buildComment = require('./buildComment')
 
 async function run() {
     try {
-        const token = core.getInput('token', {required: true})
-        const reportFilename = core.getInput('reportFilename')
+        const token = core.getInput('token', { required: true })
+        const reportFilepath = core.getInput('reportFilepath')
         const octokit = github.getOctokit(token);
         const { context = {} } = github;
         const { pull_request } = context.payload;
-        const results = extractReportInformations(reportFilename)
+
+        const results = extractReportInformations(reportFilepath)
 
         console.log(results)
         console.log(buildComment(results))
