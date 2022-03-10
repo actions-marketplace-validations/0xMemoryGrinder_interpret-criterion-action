@@ -8373,8 +8373,9 @@ function readJSONFile(reportFilename) {
     return report
 }
 
-function extractReportInformations(reportFilename) {
-    const report = require(reportFilename)
+function extractReportInformations(reportFilepath) {
+    const rawdata = fs.readFileSync(reportFilepath);
+    const report = JSON.parse(rawdata);
     let errors = []
     let crashed = []
 
