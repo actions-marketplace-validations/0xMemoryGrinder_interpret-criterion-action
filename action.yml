@@ -5,10 +5,10 @@ inputs:
   token:
     description: 'GitHub token'
     required: true
-  reportFilename:
-    description: 'The name of the report generated from criterion'
+  reportFilepath:
+    description: 'The path of the report generated from criterion'
     required: false
-    default: 'tests_report.json'
+    default: '../../../../tests_report.json'
 
 runs:
   using: 'node16'

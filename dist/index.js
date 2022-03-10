@@ -8573,16 +8573,12 @@ const buildComment = __nccwpck_require__(4561)
 async function run() {
     try {
         const token = core.getInput('token', { required: true })
-        const reportFilename = core.getInput('reportFilename')
+        const reportFilepath = core.getInput('reportFilepath')
         const octokit = github.getOctokit(token);
         const { context = {} } = github;
         const { pull_request } = context.payload;
 
-        fs.readdir(".", (err, files) => {
-            console.log(files)
-        })
-
-        const results = extractReportInformations(reportFilename)
+        const results = extractReportInformations(reportFilepath)
 
         console.log(results)
         console.log(buildComment(results))
